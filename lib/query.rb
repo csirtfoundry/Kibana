@@ -219,7 +219,7 @@ class StatsFacet < Query
     @query['facets'] = {
       "stats" => {
         "statistical" => {
-          "fields" => field,
+          "field" => field,
         }
       }
     }
