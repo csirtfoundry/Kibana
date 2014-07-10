@@ -136,6 +136,9 @@ class Kelastic
       r = []
       field = field.gsub("\.",".properties.")
       types = h.sort_by { |k,v| v }[0][1]
+      if types.has_key?("mappings")
+        types = types['mappings']
+      end
       types.each do | type |
         r << field.split(".",3).inject(type[1]['properties']) { |hash, key|
           if defined?hash[key]

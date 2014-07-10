@@ -194,7 +194,7 @@ class TermsFacet < Query
       @query['facets'] = {
         "terms" => {
           "terms" => {
-            "field" => field,
+            "fields" => field,
             "size"  => limit
           }
         }
