@@ -43,7 +43,7 @@ class Kelastic
         http.request(Net::HTTP::Get.new(url.request_uri)).body)
       indices = @status.keys
       @status.keys.each do |index|
-        if @status[index]['aliases'].count > 0
+        if @status[index]['aliases'] && @status[index]['aliases'].count > 0
           indices.concat(@status[index]['aliases'].keys)
         end
       end
