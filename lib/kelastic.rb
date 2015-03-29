@@ -61,14 +61,14 @@ class Kelastic
         requested = [] # Initialize empty array
         index_pattern = index_pattern.kind_of?(Array) ? 
           index_pattern : [index_pattern]
-        tz = TZInfo::Timezone.get(KibanaConfig::Timezone)
+
         for index in index_pattern do
           step_time = from
           begin
-            requested << tz.utc_to_local(step_time.getutc).strftime(index)
+            requested << step_time.getutc.strftime(index)
           end while (step_time += KibanaConfig::Smart_index_step) <= to
-          unless requested.include? tz.utc_to_local(to.getutc).strftime(index)
-            requested << tz.utc_to_local(to.getutc).strftime(index)
+          unless requested.include? to.getutc.strftime(index)
+            requested << to.getutc.strftime(index)
           end
         end
 
