@@ -666,9 +666,12 @@ function enable_popovers() {
         str += "</small></span>";
       }
 
+      var blacklist = ['@message', '@id'];
       str =  microAnalysisTable(window.resultjson,field,5) +
         "<span id=micrograph></span>"+
-        str +
+        str;
+      if ($.inArray(field, blacklist) == -1) {
+    	str = str +
         "<div class='btn-group'>" +
           "<button class='btn btn-small analyze_btn' rel='score' " +
           "data-field="+field+"><i class='icon-list-ol'></i> Score</button>" +
@@ -679,6 +682,8 @@ function enable_popovers() {
           "<button class='btn btn-small analyze_btn' rel='mean' " +
           "data-field="+field+"><i class='icon-bar-chart'></i> Stats</button>" +
         "</div>";
+      }
+
       return str;
     }
   }).click(function(e) {
