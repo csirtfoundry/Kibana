@@ -46,7 +46,7 @@ function pageload(hash) {
   }
   //if hash value exists, run the ajax
   if (hash) {
-    window.hashjson = JSON.parse(Base64.decode(hash));
+    window.hashjson = JSON.parse(Base64.decode(decodeURIComponent(hash)));
 
     //console.log(window.hashjson)
 

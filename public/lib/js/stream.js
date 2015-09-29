@@ -30,7 +30,7 @@ function pageload(hash) {
     window.last_time = "";
     window.hasHead = false;
     clearInterval(window.intervalID);
-    window.hashjson = JSON.parse(Base64.decode(hash));
+    window.hashjson = JSON.parse(Base64.decode(decodeURIComponent(hash)));
 
     window.hashjson.fields = window.hashjson.fields.length > 0 ?
       window.hashjson.fields : new Array('@message');
