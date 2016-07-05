@@ -15,8 +15,9 @@ Gem::Specification.new do |gem|
   gem.version = Kibana::VERSION
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
 
+  gem.add_runtime_dependency 'rack', '~> 1.6.4'
   gem.add_runtime_dependency 'sinatra'
-  gem.add_runtime_dependency 'json'
+  gem.add_runtime_dependency 'json', '~> 1.8.3'
   gem.add_runtime_dependency 'fastercsv'
   gem.add_runtime_dependency 'daemons'
   gem.add_runtime_dependency 'tzinfo'
